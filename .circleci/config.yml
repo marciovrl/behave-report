@@ -62,8 +62,8 @@ workflows:
 
   run_test:
     jobs:
-      - run-test
-      filters:
-        branches:
-          only:
-            - develeop
+      - run-test:
+        filters:
+          branches:
+            only:
+              - develeop
