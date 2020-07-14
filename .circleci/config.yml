@@ -49,7 +49,6 @@ jobs:
 
 workflows:
   version: 2
-
   nightly:
     triggers:
       - schedule:
@@ -60,3 +59,11 @@ workflows:
                 - develop
     jobs:
       - run-test
+
+  run_test:
+    jobs:
+      - run-test
+      filters:
+        branches:
+          only:
+            - develeop
