@@ -30,6 +30,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
+            ls
             behave -f json.pretty -o ./report/results/report.json
 
       - run:
