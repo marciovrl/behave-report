@@ -52,12 +52,12 @@ jobs:
 
       - run:
           - slack/notify:
-              channel: CL3H0AT5M
-              color: "#0313fc"
-              message: Report do smoke test do stoodi web.
-              title: Selenium - Behave
-              title_link: "https://stoodi-tests.s3.amazonaws.com/report-stoodi-web/index.html"
-              webhook: "${SLACK_WEBHOOK}"
+            channel: CL3H0AT5M
+            color: "#0313fc"
+            message: Report do smoke test do stoodi web.
+            title: Selenium - Behave
+            title_link: "https://stoodi-tests.s3.amazonaws.com/report-stoodi-web/index.html"
+            webhook: "${SLACK_WEBHOOK}"
 
 workflows:
   version: 2
