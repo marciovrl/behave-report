@@ -1,7 +1,4 @@
 version: 2.1
-orbs:
-  slack: circleci/slack@3.4.2
-
 jobs:
   run-test:
     docker:
@@ -58,6 +55,8 @@ jobs:
           title_link: "https://stoodi-tests.s3.amazonaws.com/report-stoodi-web/index.html"
           webhook: "${SLACK_WEBHOOK}"
 
+orbs:
+  slack: circleci/slack@3.4.2
 workflows:
   version: 2.1
   build:
