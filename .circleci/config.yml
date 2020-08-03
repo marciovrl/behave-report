@@ -47,8 +47,18 @@ jobs:
             aws s3 sync report/results s3://examples-marciovrl/behave-report --delete
           when: always
 
+      - slack/notify:
+          channel: CL3H0AT5M
+          color: "#0313fc"
+          message: Report do smoke test do stoodi web.
+          title: Selenium - Behave
+          title_link: "https://stoodi-tests.s3.amazonaws.com/report-stoodi-web/index.html"
+          webhook: "${SLACK_WEBHOOK}"
+
+orbs:
+  slack: circleci/slack@x.y.z
 workflows:
-  version: 2
+  version: 2.1
   nightly:
     triggers:
       - schedule:
@@ -56,6 +66,6 @@ workflows:
           filters:
             branches:
               only:
-                - develop
+                - master
     jobs:
       - run-test
