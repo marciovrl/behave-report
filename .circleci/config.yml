@@ -50,15 +50,14 @@ jobs:
       - slack/notify:
           channel: CL3H0AT5M
           color: "#0313fc"
-          message: Report do smoke test do stoodi web.
-          title: Selenium - Behave
-          title_link: "https://stoodi-tests.s3.amazonaws.com/report-stoodi-web/index.html"
+          message: Report do example.
+          title: Behave - Example
           webhook: "${SLACK_WEBHOOK}"
 
       - slack/status:
           channel: CL3H0AT5M
-          failure_message: "Teste não passou: https://stoodi-tests.s3.amazonaws.com/report-stoodi-web/index.html"
-          success_message: "Teste passou: https://stoodi-tests.s3.amazonaws.com/report-stoodi-web/index.html"
+          failure_message: "Test failed"
+          success_message: "Test passed"
           webhook: "${SLACK_WEBHOOK}"
 
 orbs:
@@ -68,14 +67,13 @@ workflows:
   build:
     jobs:
       - run-test
-
-  nightly:
-    triggers:
-      - schedule:
-          cron: "0 * * * *"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - run-test
+  # nightly:
+  #   triggers:
+  #     - schedule:
+  #         cron: "0 * * * *"
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #   jobs:
+  #     - run-test
